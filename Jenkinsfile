@@ -15,7 +15,7 @@ node {
     stages {
         stage('checkout') {
             steps {
-                git branch: 'ansible_maven_deploy', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/Maven-Jenkinsfile.git'
+                git branch: 'ansible_maven_deploy', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
             }
         }
         
