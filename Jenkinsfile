@@ -1,12 +1,15 @@
 pipeline {
+    agent any
     stages{
-        stage ('playbook') {         
-            ansiblePlaybook ( 
-                become: true,
-                credentialsId: 'vagrant',
-                installation: 'ansible',
-                inventory: 'inventory',
-                playbook: 'main.yml' )
+        stage ('playbook') {
+            steps {
+                ansiblePlaybook ( 
+                    become: true,
+                    credentialsId: 'vagrant',
+                    installation: 'ansible',
+                    inventory: 'inventory',
+                    playbook: 'main.yml' )
+            }
         }
 
         stage ('checkout') {
