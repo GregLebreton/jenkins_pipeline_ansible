@@ -1,0 +1,6 @@
+---
+- hosts: appserver1
+  become: yes
+
+  roles:
+    - appserver1
