@@ -63,5 +63,5 @@
     - 'worker.app1.socket_timeout=10'
       
   # RESTART APACHE
-  - name: restart Apache
-    service: name=httpd state=restarted
+- name: restart Apache
+  service: name=httpd state=restarted
