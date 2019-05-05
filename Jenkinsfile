@@ -4,6 +4,13 @@ pipeline {
         maven 'maven'
     }
     stages{
+
+        stage ('checkout') {
+            steps {
+                git branch: 'jenkins_ansible_maven_job', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
+            }
+        }
+
         stage ('playbook') {
             steps {
                 ansiblePlaybook ( 
@@ -12,12 +19,6 @@ pipeline {
                     installation: 'ansible',
                     inventory: 'inventory',
                     playbook: 'main.yml' )
-            }
-        }
-
-        stage ('checkout') {
-            steps {
-                git branch: 'jenkins_ansible_maven_job', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
             }
         }
             
@@ -34,7 +35,7 @@ pipeline {
             
         }
         
-        stage('deploy') {
+        stage('deploy on NEXUS') {
             steps {
                 sh 'mvn -f pom.xml -s settings.xml deploy'
             }
