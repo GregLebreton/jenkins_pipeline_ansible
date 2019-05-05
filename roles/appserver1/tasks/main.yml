@@ -1,9 +1,4 @@
----
-# playbook for appserver1
-- hosts: appserver1
-  become: yes
-  
-# JAVA
+ # JAVA
   - name: Check java installed
     package:
         name: "java-1.8.0-openjdk"
