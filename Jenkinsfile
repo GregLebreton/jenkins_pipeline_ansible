@@ -34,16 +34,7 @@ pipeline {
         stage('deploy') {
             steps {
                 sh 'mvn -f pom.xml -s settings.xml deploy'
-        }
-    }
-
-    post {
-        success {
-            echo "Builded and deployed successfully"
-        }
-        failure {
-            echo "Oh no: build failure"
-        }
+            }
         }
     }
 }
