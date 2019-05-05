@@ -1,26 +1,28 @@
 pipeline {
  stages{
-     stage ('playbook') {         
-        ansiblePlaybook ( 
-            playbook: 'main.yml',
-            inventory: 'inventory')
-    }
-
-    stage ('deploy') {
+        stage ('playbook') {         
+           ansiblePlaybook ( 
+             playbook: 'main.yml',
+             inventory: 'inventory')
+        }
+        stage ('checkout') {
             steps {
-                git branch: 'jenkins_ansible_maven_job', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
+             sh 'echo stage CHECKOUT'
+             git branch: 'jenkins_ansible_maven_job', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
             }
         }
         
         stage('build') {
             steps {
-                sh 'mvn -f pom.xml -s settings.xml compile'
+             sh 'echo stage BUILD'
+             sh 'mvn -f pom.xml -s settings.xml compile'
             }
         }
         
         stage('test') {
             steps {
-                sh 'mvn -f pom.xml -s settings.xml test'
+             sh 'echo stage TEST'
+             sh 'mvn -f pom.xml -s settings.xml test'
             }
             
         }
@@ -32,7 +34,8 @@ pipeline {
                 }           
             }
             steps {
-                sh 'mvn -f pom.xml -s settings.xml deploy'
+             sh 'echo stage DEPLOY'
+             sh 'mvn -f pom.xml -s settings.xml deploy'
             }
         }
     }
