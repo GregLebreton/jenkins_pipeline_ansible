@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-    stage ('deploy') {
+    stage ('checkout') {
         steps {
             git branch: 'jenkins_ansible_maven_job', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
         }
