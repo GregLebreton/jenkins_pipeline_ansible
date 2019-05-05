@@ -2,5 +2,4 @@
 - hosts: webserver1
 
   roles: 
-    -
-    -
+    - webserver1
