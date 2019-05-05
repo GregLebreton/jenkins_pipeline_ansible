@@ -1,9 +1,11 @@
 pipeline {
  stages{
-    stage ('playbook') {         
+    stage ('playbook') {
+      steps {
         ansiblePlaybook ( 
             playbook: 'main.yml',
             inventory: 'inventory')
+      }
     }
 
     stage ('deploy') {
