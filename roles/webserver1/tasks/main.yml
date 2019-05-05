@@ -2,8 +2,6 @@
 - hosts: webserver1
   become: yes
 
-  tasks:
-
 # DEPENDENCIES
 
   - name: install dependencies
