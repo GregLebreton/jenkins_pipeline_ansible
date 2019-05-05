@@ -1,6 +1,5 @@
 ---
 - hosts: all
   become: yes
-
-  - import_playbook: install_appserver1_playbook.yml
-  - import_playbook: install_webserver1_playbook.yml
+- import_playbook: install_appserver1_playbook.yml
+- import_playbook: install_webserver1_playbook.yml
