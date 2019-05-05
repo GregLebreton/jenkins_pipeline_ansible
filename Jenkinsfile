@@ -1,19 +1,12 @@
- node {
-    ansiblePlaybook ( 
-        playbook: 'main.yml',
-        inventory: 'inventory')
-}
+pipeline {
+ stages{
+     stage ('playbook') {         
+        ansiblePlaybook ( 
+            playbook: 'main.yml',
+            inventory: 'inventory')
+    }
 
-node {
-     agent any
-    options {
-        retry(3)
-    }
-    tools {
-        maven 'maven' 
-    }
-    stages {
-        stage('checkout') {
+    stage ('deploy') {
             steps {
                 git branch: 'jenkins_ansible_maven_job', credentialsId: 'GregLebreton', url: 'https://github.com/GregLebreton/jenkins_pipeline_ansible.git'
             }
@@ -43,6 +36,7 @@ node {
             }
         }
     }
+
     post {
         success {
             echo "Builded and deployed successfully"
