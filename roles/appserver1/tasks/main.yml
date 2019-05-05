@@ -2,8 +2,6 @@
 # playbook for appserver1
 - hosts: appserver1
   become: yes
-
-  tasks:
   
 # JAVA
   - name: Check java installed
