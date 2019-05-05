@@ -1,5 +1,4 @@
 ---
-  # main playbook that calls others (install_tools, install_apache_playbook, install_appserver_playbook)
 - hosts: all
   become: yes
 
