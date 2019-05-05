@@ -1,7 +1,7 @@
  node {
     ansiblePlaybook ( 
         playbook: 'main.yml',
-        inventory: 'inventory.ini')
+        inventory: 'inventory')
 }
 
 node {
