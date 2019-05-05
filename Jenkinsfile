@@ -14,9 +14,6 @@ node{
     }
  
 node {
-    tools {
-        maven 'maven' 
-    }
     stage "build"
         sh 'mvn -f pom.xml -s settings.xml compile'
     }
