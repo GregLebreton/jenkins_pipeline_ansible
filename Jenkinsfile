@@ -4,7 +4,8 @@ node {
     }
 
 node{
-    stage "playbook" 
+    stage "playbook"
+    sh 'echo playbook'
     ansiblePlaybook ( 
         playbook: '${WORKSPACE}/main.yml',
             inventory: '${WORKSPACE}/inventory')
@@ -12,15 +13,18 @@ node{
  
 node {
     stage "build"
+        sh 'echo build'
         sh 'mvn -f pom.xml -s settings.xml compile'
     }
 
 node {
     stage "test"
+        sh 'echo test'
         sh 'mvn -f pom.xml -s settings.xml test'      
     }
  
 node {
     stage "deploy"
+        sh 'echo deploy'
         sh 'mvn -f pom.xml -s settings.xml deploy'
     }
