@@ -44,5 +44,6 @@ pipeline {
         failure {
             echo "Oh no: build failure"
         }
+        }
     }
 }
