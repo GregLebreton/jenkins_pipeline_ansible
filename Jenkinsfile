@@ -14,6 +14,10 @@ node{
     }
  
 node {
+  agent any
+    tools {
+        maven 'maven' 
+    }
     stage "build"
         sh 'mvn -f pom.xml -s settings.xml compile'
     }
