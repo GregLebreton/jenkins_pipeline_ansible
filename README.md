@@ -6,7 +6,8 @@ créer un pipeline Jenkins installant un environnement 3 tiers :
   - toolserver
   - webserver 
   - appserver
- et qui va récupérer les sources du projet et les playbooks sur un Git, installe l'environnement et config les trois machines (webserver: apache et mod-jk appserver: apache, tomcat), puis par maven build, test et deployement sur repo Nexus avant de le copier pour déployement sur tomcat de appserver.
+  
+Le pipeline va ensuite récupérer les sources du projet et les playbooks sur un Git, installe l'environnement et config les trois machines (webserver: apache et mod-jk appserver: apache, tomcat), puis par maven build, test et deployement sur repo Nexus avant de le copier pour déployement sur tomcat de appserver.
 
 
 DONE:
