@@ -4,11 +4,5 @@
     become: yes
 
     roles:
-      - geerlingguy.ntp
-      - geerlingguy.git
-      - geerlingguy.java
-      - geerlingguy.jenkins
-      - geerlingguy.repo-epel
-      - geerlingguy.ansible
       - webserver1
       - appserver1
