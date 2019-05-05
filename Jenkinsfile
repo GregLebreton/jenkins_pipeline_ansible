@@ -5,26 +5,29 @@ node {
 
 node{
     stage "playbook"
-    sh 'echo playbook'
-    ansiblePlaybook become: true, credentialsId: 'vagrant', installation: 'ansible', inventory: 'inventory', playbook: 'main.yml' ( 
-        playbook: '${WORKSPACE}/main.yml',
-            inventory: '${WORKSPACE}/inventory')
+    sh 'launching playbook'
+    ansiblePlaybook ( 
+        become: true,
+        credentialsId: 'vagrant',
+        installation: 'ansible',
+        inventory: 'inventory',
+        playbook: 'main.yml' )
     }
  
 node {
     stage "build"
-        sh 'echo build'
+        sh 'launching build'
         sh 'mvn -f pom.xml -s settings.xml compile'
     }
 
 node {
     stage "test"
-        sh 'echo test'
+        sh 'launching test'
         sh 'mvn -f pom.xml -s settings.xml test'      
     }
  
 node {
     stage "deploy"
-        sh 'echo deploy'
+        sh 'launching deploy'
         sh 'mvn -f pom.xml -s settings.xml deploy'
     }
