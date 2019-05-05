@@ -32,14 +32,8 @@ pipeline {
         }
         
         stage('deploy') {
-            when {
-                allOf {
-                    stage 'test' == SUCCESS
-                }           
-            }
             steps {
                 sh 'mvn -f pom.xml -s settings.xml deploy'
-            }
         }
     }
 
