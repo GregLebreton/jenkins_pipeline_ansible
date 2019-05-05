@@ -1,8 +1,8 @@
 ---
   # main playbook that calls others (install_tools, install_apache_playbook, install_appserver_playbook)
-  - hosts: all
-    become: yes
+- hosts: all
+  become: yes
 
-    roles:
-      - webserver1
-      - appserver1
+  roles:
+    - webserver1
+    - appserver1
