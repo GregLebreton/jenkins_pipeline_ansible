@@ -16,3 +16,5 @@ creation d'un pipeline Jenkins qui fait un git checkout, invoque un playbook pou
 
 TODO:
 stage qui récupère le .jar sur Nexus pour le copir sur appserver dans webapps (pour déployement automatique)
+
+branche used: jenkins_ansible_maven_job
