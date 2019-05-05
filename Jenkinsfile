@@ -2,8 +2,8 @@
 node{
     stage "playbook" 
     ansiblePlaybook ( 
-            playbook: 'main.yml',
-            inventory: 'inventory')
+        playbook: '${WORKSPACE}main.yml',
+            inventory: '${WORKSPACE}inventory')
     }
 
 node {
