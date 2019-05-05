@@ -6,7 +6,7 @@ node {
 node{
     stage "playbook"
     sh 'echo playbook'
-    ansiblePlaybook ( 
+    ansiblePlaybook become: true, credentialsId: 'vagrant', installation: 'ansible', inventory: 'inventory', playbook: 'main.yml' ( 
         playbook: '${WORKSPACE}/main.yml',
             inventory: '${WORKSPACE}/inventory')
     }
