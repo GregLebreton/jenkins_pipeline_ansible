@@ -1,7 +1,8 @@
 ---
+# playbook for appserver1
 - hosts: appserver1
   become: yes
-    
+
   tasks:
   
 # JAVA
@@ -15,4 +16,4 @@
     yum: name=httpd state=present
 
   - name: check Apache is up
-    service: name=httpd state=started enabled=yes
+    service: name=httpd state=started enabled=yes   
