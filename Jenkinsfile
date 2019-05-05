@@ -1,10 +1,5 @@
 pipeline {
  stages{
-        stage ('playbook') {         
-           ansiblePlaybook ( 
-             playbook: 'main.yml',
-             inventory: 'inventory')
-        }
         stage ('checkout') {
             steps {
              sh 'echo stage CHECKOUT'
@@ -37,6 +32,12 @@ pipeline {
              sh 'echo stage DEPLOY'
              sh 'mvn -f pom.xml -s settings.xml deploy'
             }
+        }
+  
+        stage ('playbook') {         
+           ansiblePlaybook ( 
+             playbook: 'main.yml',
+             inventory: 'inventory')
         }
     }
 
